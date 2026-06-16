@@ -55,3 +55,24 @@ Think of it this way:
 
 The app was built and ran successfully on localhost:9090
 Output: "Hello from my DevOps app!"
+
+## Part 3: Kubernetes (EKS Basics)
+
+### Pod vs Deployment vs Service
+
+- **Pod** → the smallest unit in Kubernetes. It runs one container (your app). Think of it as one running copy of your app.
+- **Deployment** → manages multiple Pods. It says "I want 2 copies always running." If one crashes, it automatically restarts it.
+- **Service** → gives your app a stable address so users can reach it. Pods keep changing IPs, Service stays fixed.
+
+Think of it like a restaurant:
+- Pod = one chef cooking
+- Deployment = manager making sure there are always 2 chefs
+- Service = the front door where customers come in
+
+### Why EKS instead of Kubernetes on VMs?
+
+Setting up Kubernetes yourself on VMs is very complex — you have to manage the control plane, updates, and security yourself. EKS (Amazon's managed Kubernetes) handles all of that for you. You just focus on deploying your app.
+
+### Kubernetes YAML Files
+
+Created `deployment.yaml` with 2 replicas and `service.yaml` with LoadBalancer type.
