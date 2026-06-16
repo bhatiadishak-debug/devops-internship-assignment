@@ -74,6 +74,6 @@ feature-B
 \### Branch Simulation (feature-A and feature-B)
 
 See below for the steps I followed to simulate and resolve the conflict.
-
-color="blue"
-
+HEAD
+color="blue and red"
+feature-A
