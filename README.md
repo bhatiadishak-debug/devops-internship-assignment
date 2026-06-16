@@ -129,3 +129,36 @@ kubectl logs <pod-name> --previous
 - **Grafana** → visualizes Prometheus metrics in beautiful dashboards
 - **CloudWatch** → AWS built-in tool for logs and metrics, easy to set up with EKS
 - **ELK Stack** → Elasticsearch, Logstash, Kibana — great for searching through logs
+
+## Part 6: Problem-Solving Scenario
+
+### Setting up a new microservice in AWS EKS
+
+**The requirement:**
+- Code is on GitHub
+- Needs to be containerized
+- Should auto-deploy on merge to main branch
+- Logs should be visible to the dev team
+
+**My approach:**
+
+**Step 1 - Containerize the app**
+- Write a Dockerfile for the microservice
+- Test it locally using `docker build` and `docker run`
+- Make sure the app runs correctly inside the container
+
+**Step 2 - Push image to ECR**
+- Create an Amazon ECR repository
+- Tag the Docker image and push it to ECR
+- ECR is Amazon's private Docker registry
+
+**Step 3 - Write Kubernetes YAML files**
+- Create `deployment.yaml` with required replicas
+- Create `service.yaml` with LoadBalancer to expose the app
+- Apply them to the EKS cluster using `kubectl apply`
+
+**Step 4 - Set up CI/CD with GitHub Actions**
+- Write a workflow that triggers on merge to main
+- Workflow steps: build image → push to ECR → deploy to EKS using kubectl
+- This handles auto-deployment on
+
