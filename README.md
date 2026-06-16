@@ -69,11 +69,7 @@ feature-B
 
 5\. Run `git add .` then `git commit -m "resolved merge conflict"`
 
-
-
 \### Branch Simulation (feature-A and feature-B)
-
 See below for the steps I followed to simulate and resolve the conflict.
-HEAD
+
 color="blue and red"
-feature-A
