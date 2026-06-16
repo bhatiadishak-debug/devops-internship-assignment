@@ -160,5 +160,5 @@ kubectl logs <pod-name> --previous
 **Step 4 - Set up CI/CD with GitHub Actions**
 - Write a workflow that triggers on merge to main
 - Workflow steps: build image → push to ECR → deploy to EKS using kubectl
-- This handles auto-deployment on
+- This handles auto-deployment on every merge to main
 
