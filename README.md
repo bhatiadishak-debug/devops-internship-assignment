@@ -75,3 +75,4 @@ feature-B
 
 See below for the steps I followed to simulate and resolve the conflict.
 
+color="red"
