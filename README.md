@@ -93,3 +93,39 @@ After building the Docker image, we would add these extra steps:
 - Install `kubectl` in the workflow
 - Run `kubectl apply -f deployment.yaml` to deploy to Kubernetes cluster
 - Run `kubectl apply -f service.yaml` to update the service
+
+## Part 5: Monitoring & Logs
+
+### Difference between Metrics, Logs and Traces
+
+- **Metrics** → numbers that measure your app over time. Example: CPU usage, memory usage, number of requests per second. They tell you "how much."
+- **Logs** → text records of what happened inside your app. Example: "User logged in at 5pm" or "Error: database not found." They tell you "what happened."
+- **Traces** → track a single request as it moves through multiple services. They tell you "where did it slow down."
+
+Think of it like a hospital:
+- Metrics = patient's heart rate monitor
+- Logs = doctor's notes
+- Traces = following a patient through every department
+
+### How to Debug a Crashed Kubernetes Pod
+
+```bash
+# Step 1 - See all pods and their status
+kubectl get pods
+
+# Step 2 - See details about the crashed pod
+kubectl describe pod <pod-name>
+
+# Step 3 - See the logs of the crashed pod
+kubectl logs <pod-name>
+
+# Step 4 - See logs of previous crashed container
+kubectl logs <pod-name> --previous
+```
+
+### Recommended Monitoring Tools for AWS EKS
+
+- **Prometheus** → collects metrics from your pods automatically
+- **Grafana** → visualizes Prometheus metrics in beautiful dashboards
+- **CloudWatch** → AWS built-in tool for logs and metrics, easy to set up with EKS
+- **ELK Stack** → Elasticsearch, Logstash, Kibana — great for searching through logs
