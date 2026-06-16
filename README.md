@@ -76,3 +76,20 @@ Setting up Kubernetes yourself on VMs is very complex — you have to manage the
 ### Kubernetes YAML Files
 
 Created `deployment.yaml` with 2 replicas and `service.yaml` with LoadBalancer type.
+
+## Part 4: CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+Created a workflow that runs automatically when code is pushed to main branch:
+- **Build** → builds the Docker image
+- **Test** → runs a simple test (echo "Tests passed")
+- **Push** → simulates pushing image to DockerHub
+
+### How pipeline would change for Kubernetes deployment
+
+After building the Docker image, we would add these extra steps:
+- Push the real image to DockerHub or ECR (Amazon's container registry)
+- Install `kubectl` in the workflow
+- Run `kubectl apply -f deployment.yaml` to deploy to Kubernetes cluster
+- Run `kubectl apply -f service.yaml` to update the service
