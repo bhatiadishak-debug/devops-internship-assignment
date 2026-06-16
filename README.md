@@ -73,3 +73,26 @@ feature-B
 See below for the steps I followed to simulate and resolve the conflict.
 
 color="blue and red"
+
+## Part 2: Docker & Containerization
+
+### Dockerfile vs Docker Image vs Docker Container
+
+- **Dockerfile** → a text file with instructions to build your app. Like a recipe.
+- **Docker Image** → the result of building the Dockerfile. Like a cooked meal ready to serve.
+- **Docker Container** → a running instance of the image. Like the meal served on a plate.
+
+Think of it this way:
+- Dockerfile = recipe
+- Image = cooked food
+- Container = food on the plate being eaten
+
+### How to Reduce Image Size
+- Use a slim base image like `python:3.11-slim` instead of `python:3.11`
+- Remove unnecessary files after installing dependencies
+- Use `.dockerignore` to exclude files not needed in the image
+- Combine multiple RUN commands into one to reduce layers
+
+### App Running Successfully
+The app was built and ran successfully on localhost:9090
+Output: "Hello from my DevOps app!"
